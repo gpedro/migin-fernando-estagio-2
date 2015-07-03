@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -16,12 +17,11 @@ import javax.persistence.SequenceGenerator;
 import com.sadlanchonete.daos.FuncionarioDao;
 
 @Entity
-@SequenceGenerator(name = "seq", sequenceName = "seq_funcionario",
-                   allocationSize = 1, initialValue = 1)
 public class Funcionario  {
 
 	@Id
-	@GeneratedValue(generator="seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_funcionario")
+	@SequenceGenerator(name="seq_funcionario", allocationSize=25)
 	private int id;
 
 	@Column(length = 14)

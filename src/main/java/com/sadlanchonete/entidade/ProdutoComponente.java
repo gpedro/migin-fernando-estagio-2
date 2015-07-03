@@ -2,18 +2,18 @@ package com.sadlanchonete.entidade;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name = "seq", sequenceName = "seq_produto_componente",
-                   allocationSize = 1, initialValue = 1)
 public class ProdutoComponente {
 
 	@Id
-	@GeneratedValue(generator="seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_produto_componente")
+	@SequenceGenerator(name="seq_produto_componente", allocationSize=25)
 	private int id;
 
 	@ManyToOne

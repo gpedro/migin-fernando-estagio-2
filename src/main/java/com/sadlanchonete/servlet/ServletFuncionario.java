@@ -15,10 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sadlanchonete.daos.FuncionarioDao;
-import com.sadlanchonete.entidade.Endereco;
 import com.sadlanchonete.entidade.Funcionario;
 import com.sadlanchonete.entidade.FuncionarioView;
-import com.sadlanchonete.entidade.Telefone;
 
 @WebServlet("/ServletFuncionario")
 public class ServletFuncionario extends HttpServlet {
@@ -79,19 +77,8 @@ public class ServletFuncionario extends HttpServlet {
 			json = br.readLine();
 		}
 
-		Funcionario funcionario = new Funcionario();
-
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-		funcionario = gson.fromJson(json, Funcionario.class);
-
-		for (Telefone telefone : funcionario.getTelefones()) {
-			telefone.setFuncionario(funcionario);
-		}
-
-		for (Endereco endereco : funcionario.getEnderecos()) {
-			endereco.setFuncionario(funcionario);
-		}
-
+		Funcionario funcionario = gson.fromJson(json, Funcionario.class);
 		FuncionarioDao funcionarioDao = new FuncionarioDao();
 		
 		if (funcionario.getId() > 0) {
