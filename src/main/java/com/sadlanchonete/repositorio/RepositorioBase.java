@@ -25,7 +25,6 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 		return session;
 	}
 
-	@Override
 	public void add(T obj) {
 		try {
 			session.beginTransaction();
@@ -38,7 +37,6 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 		}
 	}
 
-	@Override
 	public void remove(T obj) {
 		try {
 			session.beginTransaction();
@@ -52,7 +50,6 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 
 	}
 
-	@Override
 	public void update(T obj) {
 		try {
 			session.beginTransaction();
@@ -65,7 +62,6 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 		}
 	}
 
-	@Override
 	public T getById(int id) {
 		@SuppressWarnings("unchecked")
 		T t = (T) session.get(persistentClass, id);
@@ -73,7 +69,6 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<T> getAll() {
 		return session.createCriteria(persistentClass).list();
 	}
