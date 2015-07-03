@@ -31,6 +31,7 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 			session.save(obj);
 			session.getTransaction().commit();
 		} catch (Exception erro) {
+			erro.printStackTrace();
 			session.getTransaction().rollback();
 		} finally {
 			session.close();
@@ -43,6 +44,7 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 			session.delete(obj);
 			session.getTransaction().commit();
 		} catch (Exception erro) {
+			erro.printStackTrace();
 			session.getTransaction().rollback();
 		} finally {
 			session.close();
@@ -56,6 +58,7 @@ public abstract class RepositorioBase<T> implements IRepositorioBase<T> {
 			session.update(obj);
 			session.getTransaction().commit();
 		} catch (Exception erro) {
+			erro.printStackTrace();
 			session.getTransaction().rollback();
 		} finally {
 			session.close();
