@@ -1,63 +1,64 @@
 <main>
-<div ng-controller="ProdutoComponenteController as Produto">
-
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-xs-12">
-			<div class="panel panel-default">
-
-				<div class="panel-heading">{{Titulo}}{{Titulo2}}</div>
-				<div class="panel-body">
-
-					<div class="form-group">
-						<label>Código do produto*</label> <input type="text"
-							class="form-control" ng-disabled="true" ng-model="Produto.id">
-					</div>
-
-					<div class="form-group">
-						<label>Nome do produto*</label> <input type="text"
-							class="form-control" ng-disabled="true"
-							ng-model="Produto.nomeProduto">
-					</div>
-
-					<div class="form-group">
-						<div class="input-group">
-							<select ng-model="componenteSelect" class="form-control">
-								<option ng-repeat="componente in componentes"
-									value="{{componente}}">{{componente.nomeComponente}}</option>
-							</select> <span class="input-group-btn">
-								<button class="btn btn-default" type="button"
-									ng-click="adicionarComponente()">Adicionar componente!</button>
-							</span>
+	<div data-ng-controller="ProdutoComponenteController as Produto">
+	
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-xs-12">
+				<div class="panel panel-default">
+	
+					<div class="panel-heading">{{Titulo}}{{Titulo2}}</div>
+					<div class="panel-body">
+	
+						<div class="form-group">
+							<label>CÃ³digo do produto*</label> <input type="text"
+								class="form-control" data-ng-disabled="true" data-ng-model="Produto.id">
 						</div>
+	
+						<div class="form-group">
+							<label>Nome do produto*</label> <input type="text"
+								class="form-control" data-ng-disabled="true"
+								data-ng-model="Produto.nomeProduto">
+						</div>
+	
+						<div class="form-group">
+							<div class="input-group">
+								<select data-ng-model="componenteSelect" class="form-control">
+									<option data-ng-repeat="componente in componentes"
+										value="{{componente}}">{{componente.nomeComponente}}</option>
+								</select> <span class="input-group-btn">
+									<button class="btn btn-default" type="button"
+										data-ng-click="adicionarComponente()">Adicionar componente!</button>
+								</span>
+							</div>
+						</div>
+	
+						<hr />
+						<h4>Componentes</h4>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Nome do componente</th>
+									<th style="width: 5%">AÃ§Ãµes</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr data-ng-repeat="componente in Produto.componentes">
+									<td>{{componente.nomeComponente}}</td>
+									<td style="width: 5%">
+										<button class="btn btn-xs btn-default">
+											<i class="glyphicon glyphicon-trash"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+	
+						<input type="button" class="btn btn-sm btn-success"
+							value="Cadastrar" data-ng-click="cadastrar()" /> <a href="#/Principal"
+							class="btn btn-sm btn-danger">Voltar</a>
+	
 					</div>
-
-					<hr />
-					<h4>Componentes</h4>
-					<table class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th>Nome do componente</th>
-								<th style="width: 5%">Ações</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="componente in Produto.componentes">
-								<td>{{componente.nomeComponente}}</td>
-								<td style="width: 5%">
-									<button class="btn btn-xs btn-default">
-										<i class="glyphicon glyphicon-trash"></i>
-									</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<input type="button" class="btn btn-sm btn-success"
-						value="Cadastrar" ng-click="cadastrar()" /> <a href="#/Principal"
-						class="btn btn-sm btn-danger">Voltar</a>
-
 				</div>
 			</div>
-
 		</div>
+	</div>
 </main>

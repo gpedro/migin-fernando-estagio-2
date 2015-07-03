@@ -4,29 +4,29 @@
 			<h4>{{Titulo1}}{{Titulo2}}</h4>
 		</div>
 		<div class="panel-body">
-			<table ng-table class="table table-bordered">
+			<table data-ng-table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Código</th>
+						<th>CÃ³digo</th>
 						<th>Nome</th>
 						<th>CPF</th>
 						<th>E-mail</th>
-						<th>Ações</th>
+						<th>AÃ§Ãµes</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="funcionario in funcionarios">
+					<tr data-ng-repeat="funcionario in funcionarios">
 						<td>{{funcionario.id}}</td>
 						<td>{{funcionario.nome}}</td>
 						<td>{{funcionario.cpf}}</td>
 						<td>{{funcionario.email}}</td>
 						<td>
 							<button type="button" class="btn btn-default"
-								ng-click="editar(funcionario.id)">
+								data-ng-click="editar(funcionario.id)">
 								<i class="glyphicon glyphicon-pencil"></i> Editar
 							</button>
 							<button type="button" class="btn btn-danger"
-								ng-click="excluir(funcionario.id)">
+								data-ng-click="excluir(funcionario.id)">
 								<i class="glyphicon glyphicon-remove"></i> Excluir
 							</button></td>
 					</tr>
